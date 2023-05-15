@@ -2650,6 +2650,9 @@ alias unv="rm ~/.config/nvim/init.vim && nano ~/.config/nvim/init.vim"
 alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias rz="exec zsh"
+alias l="ls --color=auto"
+alias la="ls -la --color=auto"
+alias ll="ls -l --color=auto"
 
 # Proxy
 alias prosc="proxy socks-custom"

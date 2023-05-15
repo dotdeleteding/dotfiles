@@ -14,5 +14,7 @@ SAVEHIST=10000
 export STARSHIP_CONFIG=$HOME/.zsh/starship.toml
 export STARSHIP_CACHE=$HOME/.starship/cache
 
+PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+[[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Run Starship
 eval "$(starship init zsh)"

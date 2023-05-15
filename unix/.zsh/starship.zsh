@@ -1,4 +1,4 @@
-if [[ -f $(ls /etc/*-release) ]]; then
+if [[ -f /etc/*-release ]]; then
   _system=$(grep -oP '^ID=\K\S+' /etc/*-release)
   if [[ -n $(uname -mrs | awk '{print $2}' | sed "s/.*\-//") ]]; then
     DEVICE=""

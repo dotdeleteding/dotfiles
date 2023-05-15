@@ -5,6 +5,7 @@ SAVEHIST=10000
 
 # ZSH + Starship Configuration
 [[ -f $HOME/.zsh/aliases.zsh ]] && source $HOME/.zsh/aliases.zsh
+[[ -f $HOME/.zsh/aliases-devops.zsh ]] && source $HOME/.zsh/aliases-devops.zsh
 [[ -f $HOME/.zsh/starship.zsh ]] && source $HOME/.zsh/starship.zsh
 [[ -f $HOME/.zsh-plugin/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
     source $HOME/.zsh-plugin/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -6,8 +6,10 @@ if [[ -f /etc/os-release || -f /etc/lsb-release || -f /etc/redhat-release ]]; th
   elif [[ -f /etc/redhat-release ]]; then
     _system=$(grep -oP '^ID=\K\S+' /etc/redhat-release)
   fi
-  if [[ -n $(uname -mrs | awk '{print $2}' | sed "s/.*\-//") ]]; then
+  if [[ $(uname -mrs | awk '{print $2}' | sed "s/.*\-//") == "Microsoft" ]]; then
     DEVICE=""
+  elif [[ -f /etc/cloud-release ]]; then
+    DEVICE=""
   else
     DEVICE=""
   fi

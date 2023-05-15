@@ -1,5 +1,11 @@
-if [[ -f $(ls /etc/*-release 2>/dev/null) ]]; then
-  _system=$(grep -oP '^ID=\K\S+' /etc/*-release)
+if [[ -f /etc/os-release || -f /etc/lsb-release || -f /etc/redhat-release ]]; then
+  if [[ -f /etc/os-release ]]; then
+    _system=$(grep -oP '^ID=\K\S+' /etc/os-release)
+  elif [[ -f /etc/lsb-release ]]; then
+    _system=$(grep -oP '^ID=\K\S+' /etc/lsb-release)
+  elif [[ -f /etc/redhat-release ]]; then
+    _system=$(grep -oP '^ID=\K\S+' /etc/redhat-release)
+  fi
   if [[ -n $(uname -mrs | awk '{print $2}' | sed "s/.*\-//") ]]; then
     DEVICE=""
   else

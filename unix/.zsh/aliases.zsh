@@ -150,6 +150,8 @@ function reinstall() {
             sudo $pm reinstall $*
         elif [[ $pm == "pkg" ]]; then
             sudo $pm install -f $*
+        elif [[ $pm == "apt" ]]; then
+            sudo apt reinstall $*
         else
             echo $not_support
             return 1
@@ -2551,10 +2553,12 @@ function ah() {
         echo ""
         echo "Default command can used:"
         echo "------------------------------------------------"
+        echo "    ca                         Change Alias"
         echo "    cfs | cloudfile            Local to internet"
         echo "    cv                         Convert all media <video>, <image>, <audio>, <document>"
         echo "    dl | download              Download with simple command"
         echo "    giit                       GIT Program make it simple"
+        echo "    rz                         Restart zsh"
         echo "    sctl                       Service of system"
         echo "    kali                       Kali Nethunter manager"
         echo "    ts | troubleshoot          Fixing Manager"
@@ -2568,7 +2572,6 @@ function ah() {
         echo ""
         echo "Default command can used:"
         echo "------------------------------------------------"
-        echo "    ca                         Change Alias"
         echo "    cf | cloudflare            Cloudflare operation"
         echo "    myip                       Check my ip"
         echo "    netch                      Change IP and DNS local"
@@ -2646,6 +2649,7 @@ alias suser="sudo chmod u+s"
 alias unv="rm ~/.config/nvim/init.vim && nano ~/.config/nvim/init.vim"
 alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
+alias rz="exec zsh"
 
 # Proxy
 alias prosc="proxy socks-custom"

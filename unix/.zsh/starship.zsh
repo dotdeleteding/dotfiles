@@ -20,29 +20,30 @@ elif [[ -d /data/data/com.termux/files ]]; then
 fi
 
 case $_system in
-  *kali*)                  ICON="ﴣ";;
-  *arch*)                  ICON="";;
-  *debian*)                ICON="";;
-  *raspbian*)              ICON="";;
-  *ubuntu*)                ICON="";;
-  *elementary*)            ICON="";;
-  *fedora*)                ICON="";;
-  *coreos*)                ICON="";;
-  *gentoo*)                ICON="";;
-  *mageia*)                ICON="";;
-  *centos*)                ICON="";;
-  *opensuse*|*tumbleweed*) ICON="";;
-  *sabayon*)               ICON="";;
-  *slackware*)             ICON="";;
-  *linuxmint*)             ICON="";;
   *alpine*)                ICON="";;
   *aosc*)                  ICON="";;
-  *nixos*)                 ICON="";;
+  *arch*)                  ICON="";;
+  *centos*)                ICON="";;
+  *coreos*)                ICON="";;
+  *debian*)                ICON="";;
   *devuan*)                ICON="";;
-  *manjaro*)               ICON="";;
-  *rhel*)                  ICON="";;
+  *elementary*)            ICON="";;
+  *fedora*)                ICON="";;
+  *gentoo*)                ICON="";;
+  *kali*)                  ICON="ﴣ";;
+  *linuxmint*)             ICON="";;
   *macos*)                 ICON="";;
+  *mageia*)                ICON="";;
+  *manjaro*)               ICON="";;
+  *nixos*)                 ICON="";;
+  *opensuse*|*tumbleweed*) ICON="";;
+  *raspbian*)              ICON="";;
+  *rhel*)                  ICON="";;
+  *sabayon*)               ICON="";;
+  *slackware*)             ICON="";;
+  *ubuntu*)                ICON="";;
   *)                       ICON="";;
 esac
+
 export STARSHIP_DISTRO="$ICON"
 export STARSHIP_DEVICE="$DEVICE"

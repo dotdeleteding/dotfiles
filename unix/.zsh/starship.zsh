@@ -15,7 +15,7 @@ elif [[ -f /System/Library/CoreServices/SystemVersion.plist ]]; then
   esac
 elif [[ -d /data/data/com.termux/files ]]; then
   _system=""
-  USER=$(whoami)
+  export USER=$(whoami)
   DEVICE=""
 fi
 

@@ -51,16 +51,16 @@ variable = "STARSHIP_DISTRO"
 disabled = false
 
 # Show username
-[env_var.USER]
-format = '[$env_value]($style)'
-style = "bg:#F6F1F1 fg:#090c0c"
-variable = "USER"
-disabled = false
+# [env_var.USER]
+# format = '[$env_value]($style)'
+# style = "bg:#F6F1F1 fg:#090c0c"
+# variable = "USER"
+# disabled = false
  
 # Show device on what?
 [env_var.STARSHIP_DEVICE]
 style = "bg:#F6F1F1 fg:#090c0c"
-format = '[ on $env_value ]($style)'
+format = '[$env_value]($style)'
 variable = "STARSHIP_DEVICE"
 disabled = false
 

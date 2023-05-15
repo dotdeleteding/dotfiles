@@ -1,4 +1,4 @@
-if [[ -f /etc/*-release ]]; then
+if [[ -f $(ls /etc/*-release 2>/dev/null) ]]; then
   _system=$(grep -oP '^ID=\K\S+' /etc/*-release)
   if [[ -n $(uname -mrs | awk '{print $2}' | sed "s/.*\-//") ]]; then
     DEVICE=""
@@ -14,7 +14,8 @@ elif [[ -f /System/Library/CoreServices/SystemVersion.plist ]]; then
     *)             DEVICE="";;
   esac
 elif [[ -d /data/data/com.termux/files ]]; then
-  _system="termux"
+  _system=""
+  USER=$(whoami)
   DEVICE=""
 fi
 

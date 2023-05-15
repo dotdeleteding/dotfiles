@@ -26,6 +26,7 @@ $kubernetes\
 [](fg:#0b5374 bg:#000000)\
 $cmd_duration\
 $time\
+$hostname\
 [ ](fg:#000000)
 ╰─$character\
 """

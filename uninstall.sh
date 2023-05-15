@@ -1,1 +1,1 @@
-rm -rf $HOME/.zshrc $HOME/.zsh ${PWD}/unix/.zsh/plugin/zsh-autosuggestions ${PWD}/unix/.zsh/plugin/zsh-syntax-highlighting
+rm -rf $HOME/.zshrc $HOME/.zsh $HOME/.zsh-plugin

@@ -43,12 +43,6 @@ error_symbol = '[❯](#cc0000)'
 
 #---
 
-[custom.linux]
-ls_command = "ls --color=auto"
-
-[custom.macOS]
-ls_command = "ls -G"
-
 [env_var.STARSHIP_DISTRO]
 format = '[$env_value  ]($style)'
 style = "bg:#F6F1F1 fg:#090c0c"

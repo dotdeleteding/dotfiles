@@ -1134,6 +1134,35 @@ function docker-install() {
 }
 
 function kubectl() {
+    if [[ $system == "termux" ]]; then
+        echo "$not_support"
+    fi
+    if ! which minikube >/dev/null 2>&1; then
+        if [[ $system == "windows" ]]; then
+            echo "Detected using WSL 1! May you cannot using it, try out on WSL 2."
+            sleep 3
+        fi
+        echo -ne "minikube not found. Do you want install [y/N]? "
+        read response
+        case $response in
+            y|Y )   if [[ $system == "linux" ]]; then
+                        system_architecture=$(uname -m)
+                        case $system_architecture in
+                            x86_64)     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+                                        sudo install minikube-linux-amd64 /usr/local/bin/minikube
+                                        ;;
+                            armv7l)     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64
+                                        sudo install minikube-linux-arm64 /usr/local/bin/minikube
+                                        ;;
+                            aarch64)    curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64
+                                        sudo install minikube-linux-arm64 /usr/local/bin/minikube
+                                        ;;
+                            *)          echo "See https://minikube.sigs.k8s.io/docs/start/";;
+                        esac
+                    fi;;
+            * ) return 1;;
+        esac
+    fi
     if ! which kubectl >/dev/null 2>&1 && which minikube >/dev/null 2>&1; then
         minikube kubectl $*
     elif which kubectl >/dev/null 2>&1 && which minikube >/dev/null 2>&1; then

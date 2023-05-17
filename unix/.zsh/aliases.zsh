@@ -2361,7 +2361,7 @@ function download() {
 }
 
 function cv() {
-    if [[ ! $(which convert &>/dev/null) || ! $(which ffmpeg &>/dev/null) ]]; then
+    if ! which convert >/dev/null 2>&1 || ! which ffmpeg >/dev/null 2>&1; then
         echo "Dependency for converter not found. Installing now..."
         install imagemagick ffmpeg -y
         return 1
@@ -2458,7 +2458,12 @@ function cv() {
         echo "Comming soon"
     }
     function document() {
-        echo "Comming soon"
+        PS3="Select type: "
+        select action in Merge; do
+            case $action in
+                Merge ) convert *.pdf merger.pdf;;
+            esac
+        done
     }
     PS3="Select type: "
     select type in Video Audio Image Document; do
@@ -2682,6 +2687,9 @@ alias rz="exec zsh"
 alias l="ls --color=auto"
 alias la="ls -la --color=auto"
 alias ll="ls -l --color=auto"
+alias ls="ls --color=auto"
+alias "ls -la"="ls -la --color=auto"
+alias "ls -l"="ls -l --color=auto"
 
 # Proxy
 alias prosc="proxy socks-custom"

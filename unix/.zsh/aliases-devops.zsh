@@ -197,6 +197,8 @@ alias aval='ansible-vault'
 
 #---
 
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
 alias dbl='docker build'
 alias dcin='docker container inspect'
 alias dcls='docker container ls'

@@ -322,7 +322,7 @@ function myip() {
             mac_wifi=$(ip address show wlan0 | awk '/link\/ether / {print $2}' | cut -f1 -d'/')
         else
             ip_wifi=$(ip address show $int | awk '/inet / {print $2}' | cut -f1 -d'/')
-            mac_wifi=$(cat /sys/class/net/"$int"/address)
+            mac_wifi=$(cat /sys/class/net/"$int"/address 2>/dev/null | awk '{print $1}')
         fi
         gateway_wifi=$(echo $wifi_interface | awk '{print $2}')
     else
@@ -332,7 +332,7 @@ function myip() {
     fi
     if [[ -n $(echo $lan_interface | awk -F: '{print $1}') ]]; then
         int=$(echo $gateway | awk -v i=$(echo $lan_interface | awk -F: '{print $1}') 'NR==i{print $1}')
-        ip_lan=$(ip address show $int | awk '/inet / {print $2}' | cut -f1 -d'/')
+        ip_lan=$(ip address show $(echo $int | awk '{print $1}') | awk '/inet / {print $2}' | cut -f1 -d'/')
         gateway_lan=$(echo $lan_interface | awk '{print $2}')
         mac_lan=$(cat /sys/class/net/"$int"/address 2>/dev/null | awk '{print $1}')
     else

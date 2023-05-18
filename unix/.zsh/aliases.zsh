@@ -334,7 +334,7 @@ function myip() {
         int=$(echo $gateway | awk -v i=$(echo $lan_interface | awk -F: '{print $1}') 'NR==i{print $1}')
         ip_lan=$(ip address show $int | awk '/inet / {print $2}' | cut -f1 -d'/')
         gateway_lan=$(echo $lan_interface | awk '{print $2}')
-        mac_lan=$(cat /sys/class/net/"$int"/address)
+        mac_lan=$(cat /sys/class/net/"$int"/address 2>/dev/null | awk '{print $1}')
     else
         ip_lan="Disconnect"
         gateway_lan="Disconnect"
